@@ -1,0 +1,19 @@
+{
+  "name": "Roronoa Zoro",
+  "symbol": "ZORO",
+  "image": "1.png",
+  "properties": {
+    "files": [
+      {
+        "uri": "1.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "HQALmK9Y6MWGoCdaamsV5Zb6NLD64afkfC1fcaumWqpJ",
+        "share": 100
+      }
+    ]
+  }
+}
