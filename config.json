@@ -1,11 +1,11 @@
 {
-  "price": 0.1,
+  "price": 1.0,
   "number": 3,
   "gatekeeper": null,
   "solTreasuryAccount": "8SDR8jEgwW4kWwDMGjQEzPVQQdbQU3nY11PyNEHBvNXC",
   "splTokenAccount": null,
   "splToken": null,
-  "goLiveDate": "17 Jan 2022 00:00:00 GMT",
+  "goLiveDate": "20 Jan 2022 00:00:00 GMT",
   "endSettings": null,
   "whitelistMintSettings": null,
   "hiddenSettings": null,

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Buffer } from 'buffer';
 import { Connection, PublicKey } from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
@@ -18,6 +19,8 @@ const { SystemProgram } = web3;
 const opts = {
   preflightCommitment: 'processed',
 };
+
+window.buffer = Buffer;
 
 const CandyMachine = ({ walletAddress }) => {
   // Actions
@@ -400,7 +403,7 @@ const CandyMachine = ({ walletAddress }) => {
       <div className="machine-container">
         <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>
         <p>{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
-        <button className="cta-button mint-button" onClick={null}>
+        <button className="cta-button mint-button" onClick={mintToken}>
           Mint NFT
         </button>
       </div>
