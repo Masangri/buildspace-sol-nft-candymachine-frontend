@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Connection, PublicKey } from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
@@ -24,8 +24,70 @@ const MAX_URI_LENGTH = 200;
 const MAX_SYMBOL_LENGTH = 10;
 const MAX_CREATOR_LEN = 32 + 1 + 1;
 
+
 const CandyMachine = ({ walletAddress }) => {
   // Actions
+  
+  useEffect(() => {
+    getCandyMachineState();
+  }, [])
+
+  const getProvider = () => {
+    const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST; 
+    // Create a new connection request
+    const connection = new Connection(rpcHost);
+
+    // Create a new Solana Provider object
+    const provider = new Provider(
+      connection,
+      window.solana,
+      opts.preflightCommitment
+    );
+
+    return provider;
+  }
+
+  const getCandyMachineState = async () => {
+    const provider = getProvider();
+
+    // Get metadata about your deployed Candy Machine program (Interface Description Language)
+    const idl = await Program.fetchIdl(candyMachineProgram, provider);
+
+    // Create a program that you can call
+    const program = new Program(idl, candyMachineProgram, provider);
+
+    // Cetch the metadata from your Candy Machine program
+    const candyMachine = await program.account.candyMachine.fetch(
+      process.env.REACT_APP_CANDY_MACHINE_ID
+    );
+
+    // Parse out all our metadata and log it out
+
+    const itemsAvailable = candyMachine.data.itemsAvailable.toNumber();
+    const itemsRedeemed = candyMachine.data.itemsRedeemed.toNumber();
+    const itemsRemaining = itemsAvailable - itemsRedeemed;
+    const goLiveDate = candyMachine.data.goLiveDate.toNumber();
+    const presale = 
+      candyMachine.data.whitelistMintSettings &&
+      candyMachine.data.whitelistMintSettings.presale &&
+      (!candyMachine.data.goLiveDate ||
+        candyMachine.data.goLiveDate.toNumber() > new Date().getTime() / 1000);
+
+    // We will be using this later in our UI so let's generate this now
+    const goLiveStateTimeString = `${new Date(
+      goLiveDate * 1000
+    ).toGMTString()}`
+
+    console.log(
+      itemsAvailable,
+      itemsRedeemed,
+      itemsRemaining,
+      goLiveDate,
+      goLiveStateTimeString,
+      presale,
+    );
+  }
+
   const fetchHashTable = async (hash, metadataEnabled) => {
     const connection = new web3.Connection(
       process.env.REACT_APP_SOLANA_RPC_HOST

@@ -1,11 +1,10 @@
-require('dotenv').config()
-
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import twitterLogo from './assets/twitter-logo.svg';
+import CandyMachine from './CandyMachine';
 
 // Constants
-const TWITTER_HANDLE = process.env.TWITTER_HANDLE;
+const TWITTER_HANDLE = process.env.REACT_APP_TWITTER_HANDLE;
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
@@ -97,6 +96,8 @@ const App = () => {
           {/* Render your connect to wallet button right here */}
           {!walletAddress && renderNotConnectedContainer()}
         </div>
+        {/* Check for walletAdress and then pass in walletAddress */}
+        {walletAddress && <CandyMachine walletAddress={window.solana}/>}
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
