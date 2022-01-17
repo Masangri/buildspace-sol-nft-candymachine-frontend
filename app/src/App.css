@@ -14,7 +14,11 @@
   padding: 0 30px 0 30px;
   color: palegoldenrod;
   position: relative;
-  /* background-color: #35aee2; */
+  background-color: #000000;
+  background-image: url("assets/background-image.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .authed-container {
@@ -25,21 +29,24 @@
 }
 
 .header-container {
-  /* background-color: #60c657; */
+  /* background-color: #000000; */
 }
 
 .header {
   margin: 0;
+  color: aliceblue;
+  font-family: "Brush Script MT", cursive;
   font-size: 50px;
   font-weight: bold;
 }
 
 .sub-text {
+  font-family: "Brush Script MT", cursive;
   font-size: 25px;
 }
 
 .gradient-text {
-  background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
+  background: -webkit-linear-gradient(left, #eaffe8 30%, #c182fc 60%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -68,7 +75,9 @@
   background: -webkit-linear-gradient(left, #e96224, #e2ee3f);
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
-  margin-left: 10px;
+  width: fit-content;
+  margin:0 auto;
+  display:block;
 }
 
 .footer-container {

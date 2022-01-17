@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import promoImage from './assets/promo-image.png'
 import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
 
@@ -91,8 +92,9 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">NFT drop machine with fair mint</p>
+          <img src={promoImage} alt="" width="406" height="280"/>
+          <p className="header">ONE PIECE 🏴‍☠️ NFT Drop</p>
+          <p className="sub-text">🏯 Wano Arc Edition 🌸</p>
           {/* Render your connect to wallet button right here */}
           {!walletAddress && renderNotConnectedContainer()}
         </div>

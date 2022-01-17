@@ -14,13 +14,14 @@ import {
   getNetworkToken,
   CIVIC
 } from './helpers';
+import CountdownTimer from '../CountdownTimer';
 
 const { SystemProgram } = web3;
 const opts = {
   preflightCommitment: 'processed',
 };
 
-window.buffer = Buffer;
+// window.buffer = Buffer;
 
 const CandyMachine = ({ walletAddress }) => {
   // Actions
@@ -392,6 +393,20 @@ const CandyMachine = ({ walletAddress }) => {
     }
     return [];
   };
+
+  const renderDropTimer = () => {
+    // Get the current date and dropDate in a JavaScript Date object
+    const currentDate = new Date();
+    const dropDate = new Date(candyMachine.state.goLiveData * 1000);
+
+    // If currentDate is before dropDate, render our Countdown component
+    if (currentDate < dropDate) {
+      console.log('Before drop date!');
+      return <CountdownTimer dropDate={dropDate}/>;
+    } else {
+      return <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>;
+    }
+  }
   
   useEffect(() => {
     getCandyMachineState();
@@ -401,11 +416,18 @@ const CandyMachine = ({ walletAddress }) => {
     // Only return this if machineStats is available
       candyMachine && (
       <div className="machine-container">
-        <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>
+        {renderDropTimer()}
         <p>{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
-        <button className="cta-button mint-button" onClick={mintToken}>
-          Mint NFT
-        </button>
+          {candyMachine.state.itemsRedeemed === candyMachine.state.itemsAvailable ? (
+            <p className="sub-text">Sold Out</p>
+          ) : (
+            // <button className="cta-button mint-button" onClick={mintToken} disabled={isMinting}>
+            <button className="cta-button mint-button" onClick={mintToken}>
+              Mint NFT
+            </button>
+          )}
+        {/* {mints.langth > 0 && renderMintedItems()}
+        {isLoadingMints && <p>LOADING MINTS...</p>} */}
       </div>
     )
   );
