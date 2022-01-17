@@ -15,10 +15,10 @@
   color: palegoldenrod;
   position: relative;
   background-color: #000000;
-  /* background-image: url("assets/background-image.png");
+  background-image: url("assets/background-image.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; */
+  background-position: center;
 }
 
 .authed-container {
