@@ -1,15 +1,10 @@
-# buildspace Solana NFT Drop Project
-### Welcome 👋
-To get started with this course, clone this repo and follow these commands:
+# buildspace Solana NFT Drop Project (Front-End)
 
-1. cd into the `app` folder
-2. Run `npm install` at the root of your directory
-3. Run `npm run start` to start the project
-4. Start coding!
+## Solana NFT Drop App Study Project
+- Publicly accessible. Connect to Phantom wallet to interact (note that all NFTs on Devnet are already minted).
+- Front-end built in ReactJS with @metaplex, @project-serum, and @solana (see `app` folder).
+- Back-end deployed on Solana Devnet [Metaplex Candy Machine V2](https://docs.metaplex.com/overviews/candy_machine_overview).
+  - Candy Machine V2 Program: [`cndy3Z4yapfJBmL3ShUp5exZKqR3z33thTzeNMm2gRZ`](https://explorer.solana.com/address/cndy3Z4yapfJBmL3ShUp5exZKqR3z33thTzeNMm2gRZ?cluster=devnet)
+  - Token Metadata Program ID: [metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s](https://explorer.solana.com/address/metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s?cluster=devnet)
 
-### What is the .vscode Folder?
-If you use VSCode to build your app, we included a list of suggested extensions that will help you build this project! Once you open this project in VSCode, you will see a popup asking if you want to download the recommended extensions :).
-
-### Questions?
-Have some questions make sure you head over to your [buildspace Dashboard](https://app.buildspace.so/projects/CO77556be5-25e9-49dd-a799-91a2fc29520e) and link your Discord account so you can get access to helpful channels and your instructor!
-
+## 👉[Live app on Vercel](https://buildspace-sol-nft-candymachine-frontend.vercel.app/)👈
