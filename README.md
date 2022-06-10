@@ -8,3 +8,5 @@
   - Token Metadata Program ID: [metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s](https://explorer.solana.com/address/metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s?cluster=devnet)
 
 ## 👉[Live app on Vercel](https://buildspace-sol-nft-candymachine-frontend.vercel.app/)👈
+
+![image](https://user-images.githubusercontent.com/82431885/172995802-5384b63f-2c6a-403c-b9a8-6c3e3a170d26.png)
